@@ -413,7 +413,11 @@ paths:
           description: Course teacher's last name
           schema:
             type: string
-
+        - name: creditsOrder
+          in: query
+          description: Order by credits
+          schema:
+            $ref: '#/components/schemas/OrderDirection'
       responses:
         '200':
           description: List of all courses
@@ -1159,6 +1163,11 @@ components:
         creation_datetime:
           type: string
           format: date-time
+    OrderDirection:
+      type: string
+      enum:
+        - ASC
+        - DESC
     CreatePayment:
       type: object
       properties:
